@@ -322,19 +322,19 @@
   .proj-card:hover{ transform:translateY(-6px); border-color:var(--border-strong); }
   .proj-preview{
     height:170px; position:relative; padding:16px; display:flex; flex-direction:column; gap:8px; justify-content:flex-end;
-    overflow:hidden;
+    overflow:hidden; background-size:cover; background-position:center;
+    transition:transform 0.4s ease;
   }
-  .proj-preview::before{ content:""; position:absolute; inset:0; opacity:0.9; }
-  .proj-preview.rest::before{ background:radial-gradient(circle at 30% 20%, rgba(255,140,60,0.28), transparent 60%), linear-gradient(160deg,#241608,#120a04); }
-  .proj-preview.shop::before{ background:radial-gradient(circle at 70% 20%, rgba(61,107,255,0.32), transparent 60%), linear-gradient(160deg,#0a1230,#050814); }
-  .proj-preview.barb::before{ background:radial-gradient(circle at 30% 80%, rgba(230,190,80,0.22), transparent 60%), linear-gradient(160deg,#1c1408,#0d0a04); }
-  .proj-preview.local::before{ background:radial-gradient(circle at 70% 70%, rgba(52,211,153,0.24), transparent 60%), linear-gradient(160deg,#08201c,#040f0c); }
-  .proj-preview.folio::before{ background:radial-gradient(circle at 50% 30%, rgba(139,92,246,0.3), transparent 60%), linear-gradient(160deg,#160c26,#0a0614); }
+  .proj-card:hover .proj-preview{ transform:scale(1.04); }
+  .proj-preview::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(6,9,20,0.1) 0%, rgba(6,9,20,0.35) 55%, rgba(6,9,20,0.92) 100%);
+  }
   .proj-demo-tag{
     position:relative; z-index:1; align-self:flex-start;
     font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.02em;
-    background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.12); border-radius:6px;
-    padding:4px 9px; color:var(--text-soft);
+    background:rgba(0,0,0,0.55); border:1px solid rgba(255,255,255,0.16); border-radius:6px;
+    padding:4px 9px; color:var(--text-soft); backdrop-filter:blur(3px);
   }
   .proj-preview .mini-lines{ position:relative; z-index:1; display:flex; flex-direction:column; gap:6px; }
   .proj-preview .mini-lines span{ display:block; height:6px; border-radius:4px; background:rgba(255,255,255,0.28); }
@@ -361,7 +361,11 @@
     background:var(--panel); border:1px solid var(--border-strong); border-radius:20px;
     max-width:560px; width:100%; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,0.6);
   }
-  .modal-preview{ height:220px; position:relative; }
+  .modal-preview{ height:220px; position:relative; background-size:cover; background-position:center; }
+  .modal-preview::before{
+    content:""; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(6,9,20,0.05) 0%, rgba(6,9,20,0.5) 100%);
+  }
   .modal-close{
     position:absolute; top:14px; right:14px; z-index:2; width:34px; height:34px; border-radius:50%;
     background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center;
@@ -801,9 +805,8 @@
     <div class="proj-grid">
 
       <article class="proj-card reveal">
-        <div class="proj-preview rest">
+        <div class="proj-preview rest" style="background-image:url('https://kom.pe/wp-content/uploads/2021/07/pagina-web-de-restaurante-saha-las-mejores-paginas-web-en-peru-por-rubros-diseno-seo-.png')">
           <span class="proj-demo-tag">demo</span>
-          <div class="mini-lines"><span></span><span></span></div>
         </div>
         <div class="proj-body">
           <span class="proj-type">Restaurante</span>
@@ -814,9 +817,8 @@
       </article>
 
       <article class="proj-card reveal">
-        <div class="proj-preview shop">
+        <div class="proj-preview shop" style="background-image:url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKF18Gc9lE1iHqIV1ZMnVpiO-B6bGPQnbIKdR2a-XdA2rPoodP6O4q90&s=10')">
           <span class="proj-demo-tag">demo</span>
-          <div class="mini-lines"><span></span><span></span></div>
         </div>
         <div class="proj-body">
           <span class="proj-type">Tienda online</span>
@@ -827,9 +829,8 @@
       </article>
 
       <article class="proj-card reveal">
-        <div class="proj-preview barb">
+        <div class="proj-preview barb" style="background-image:url('https://www.booknetic.com/storage/photos/Blog%20Edits/Barbershop_Templates/4.png')">
           <span class="proj-demo-tag">demo</span>
-          <div class="mini-lines"><span></span><span></span></div>
         </div>
         <div class="proj-body">
           <span class="proj-type">Barbería</span>
@@ -840,9 +841,8 @@
       </article>
 
       <article class="proj-card reveal">
-        <div class="proj-preview local">
+        <div class="proj-preview local" style="background-image:url('https://kom.pe/wp-content/uploads/2021/06/pedidos-ya-delivery-las-mejores-paginas-web-en-peru-por-rubros-diseno-seo-.png')">
           <span class="proj-demo-tag">demo</span>
-          <div class="mini-lines"><span></span><span></span></div>
         </div>
         <div class="proj-body">
           <span class="proj-type">Negocio local</span>
@@ -853,9 +853,8 @@
       </article>
 
       <article class="proj-card reveal">
-        <div class="proj-preview folio">
+        <div class="proj-preview folio" style="background-image:url('https://larepublica.cronosmedia.glr.pe/original/2024/01/22/65aece1532f15842c76038c8.jpg')">
           <span class="proj-demo-tag">demo</span>
-          <div class="mini-lines"><span></span><span></span></div>
         </div>
         <div class="proj-body">
           <span class="proj-type">Portafolio personal</span>
@@ -1158,11 +1157,11 @@
 
   // Project demo modal
   const projectData = {
-    rest: { type:'Restaurante', title:'Demo Restaurante', desc:'Sitio con menú visual por categorías, galería de platos, ubicación integrada con mapa y botón directo de WhatsApp para reservas y pedidos.', cls:'rest' },
-    shop: { type:'Tienda online', title:'Demo Tienda', desc:'Catálogo de productos organizado por categorías, precios visibles, ficha de producto y contacto rápido por WhatsApp para cerrar la venta.', cls:'shop' },
-    barb: { type:'Barbería', title:'Demo Barbería', desc:'Presentación de servicios y precios, galería de estilos de corte, horario de atención y reservas por WhatsApp.', cls:'barb' },
-    local: { type:'Negocio local', title:'Demo Negocio Local', desc:'Página institucional con servicios, galería de trabajos realizados, datos de contacto y ubicación del negocio.', cls:'local' },
-    folio: { type:'Portafolio personal', title:'Demo Portafolio', desc:'Presentación profesional con sección sobre mí, proyectos destacados, habilidades técnicas y formulario de contacto.', cls:'folio' },
+    rest: { type:'Restaurante', title:'Demo Restaurante', desc:'Sitio con menú visual por categorías, galería de platos, ubicación integrada con mapa y botón directo de WhatsApp para reservas y pedidos.', cls:'rest', img:'https://kom.pe/wp-content/uploads/2021/07/pagina-web-de-restaurante-saha-las-mejores-paginas-web-en-peru-por-rubros-diseno-seo-.png' },
+    shop: { type:'Tienda online', title:'Demo Tienda', desc:'Catálogo de productos organizado por categorías, precios visibles, ficha de producto y contacto rápido por WhatsApp para cerrar la venta.', cls:'shop', img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREKF18Gc9lE1iHqIV1ZMnVpiO-B6bGPQnbIKdR2a-XdA2rPoodP6O4q90&s=10' },
+    barb: { type:'Barbería', title:'Demo Barbería', desc:'Presentación de servicios y precios, galería de estilos de corte, horario de atención y reservas por WhatsApp.', cls:'barb', img:'https://www.booknetic.com/storage/photos/Blog%20Edits/Barbershop_Templates/4.png' },
+    local: { type:'Negocio local', title:'Demo Negocio Local', desc:'Página institucional con servicios, galería de trabajos realizados, datos de contacto y ubicación del negocio.', cls:'local', img:'https://kom.pe/wp-content/uploads/2021/06/pedidos-ya-delivery-las-mejores-paginas-web-en-peru-por-rubros-diseno-seo-.png' },
+    folio: { type:'Portafolio personal', title:'Demo Portafolio', desc:'Presentación profesional con sección sobre mí, proyectos destacados, habilidades técnicas y formulario de contacto.', cls:'folio', img:'https://larepublica.cronosmedia.glr.pe/original/2024/01/22/65aece1532f15842c76038c8.jpg' },
   };
   const overlay = document.getElementById('modalOverlay');
   const modalPreview = document.getElementById('modalPreview');
@@ -1174,6 +1173,7 @@
     btn.addEventListener('click', () => {
       const data = projectData[btn.dataset.modal];
       modalPreview.className = 'modal-preview proj-preview ' + data.cls;
+      modalPreview.style.backgroundImage = "url('" + data.img + "')";
       modalPreview.innerHTML = '<button class="modal-close" id="modalClose2" aria-label="Cerrar">✕</button>';
       modalType.textContent = data.type;
       modalTitle.textContent = data.title;
