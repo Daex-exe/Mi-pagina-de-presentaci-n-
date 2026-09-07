@@ -1,0 +1,1213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAEX | Diseño y Desarrollo de Páginas Web en Piura</title>
+<meta name="description" content="DAEX crea páginas web modernas y personalizadas para negocios y profesionales en Piura. También ofrecemos soluciones y servicios tecnológicos: cámaras, redes, mantenimiento y más.">
+<meta name="keywords" content="páginas web Piura, diseño web Piura, desarrollo web Piura, páginas web para negocios, creación de páginas web, diseñador web Piura, servicio técnico Piura, instalación de cámaras Piura, instalación de internet Piura, mantenimiento de computadoras Piura, páginas web para restaurantes">
+<meta property="og:title" content="DAEX | Páginas web a la medida de tu negocio">
+<meta property="og:description" content="Diseño y desarrollo de páginas web modernas y personalizadas en Piura. Servicio a domicilio y soluciones tecnológicas.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --void:#05070d;
+    --deep:#0a1024;
+    --panel:#101830;
+    --panel-2:#141d3a;
+    --border:rgba(140,165,255,0.14);
+    --border-strong:rgba(140,165,255,0.28);
+    --blue:#3d6bff;
+    --blue-bright:#6d92ff;
+    --purple:#8b5cf6;
+    --purple-soft:#b9a1ff;
+    --whatsapp:#25D366;
+    --text:#f4f6fc;
+    --text-soft:#aab3ce;
+    --text-mute:#6b7594;
+    --grad: linear-gradient(135deg, var(--blue), var(--purple));
+    --grad-soft: linear-gradient(135deg, rgba(61,107,255,0.16), rgba(139,92,246,0.16));
+    --radius: 18px;
+    --radius-sm: 12px;
+    --maxw: 1180px;
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background:var(--void);
+    color:var(--text);
+    font-family:var(--font-body);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+  button{ font-family:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+  section{ position:relative; }
+  .wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
+  h1,h2,h3,h4{ font-family:var(--font-display); font-weight:600; line-height:1.15; letter-spacing:-0.01em; }
+  ::selection{ background:var(--blue); color:#fff; }
+
+  :focus-visible{
+    outline:2px solid var(--blue-bright);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+  }
+
+  /* background ambience */
+  .glow-field{
+    position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden;
+  }
+  .glow-field span{
+    position:absolute; border-radius:50%; filter:blur(120px); opacity:0.25;
+  }
+  .glow-field .g1{ width:520px; height:520px; background:var(--blue); top:-160px; left:-120px; }
+  .glow-field .g2{ width:600px; height:600px; background:var(--purple); top:30%; right:-220px; opacity:0.18; }
+  .glow-field .g3{ width:420px; height:420px; background:var(--blue); bottom:-100px; left:20%; opacity:0.14; }
+
+  /* ---------- NAVBAR ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(6,9,20,0.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    -webkit-backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--border);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-family:var(--font-display); font-weight:700; font-size:1.4rem;
+    letter-spacing:0.02em;
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .nav-links{ display:flex; align-items:center; gap:30px; }
+  .nav-links a{
+    font-size:0.92rem; color:var(--text-soft); font-weight:500;
+    position:relative; padding:6px 0; transition:color 0.2s ease;
+  }
+  .nav-links a::after{
+    content:""; position:absolute; left:0; bottom:0; width:0; height:1.5px;
+    background:var(--grad); transition:width 0.25s ease;
+  }
+  .nav-links a:hover{ color:var(--text); }
+  .nav-links a:hover::after{ width:100%; }
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--grad); color:#fff; font-weight:600; font-size:0.88rem;
+    padding:10px 18px; border-radius:100px;
+    box-shadow:0 6px 20px rgba(61,107,255,0.28);
+    transition:transform 0.2s ease, box-shadow 0.2s ease;
+    white-space:nowrap;
+  }
+  .nav-cta:hover{ transform:translateY(-2px); box-shadow:0 10px 26px rgba(139,92,246,0.35); }
+
+  .burger{
+    display:none; width:38px; height:38px; border-radius:8px;
+    border:1px solid var(--border); align-items:center; justify-content:center;
+    background:var(--panel);
+  }
+  .burger span{ display:block; width:18px; height:1.5px; background:var(--text); position:relative; }
+  .burger span::before, .burger span::after{
+    content:""; position:absolute; width:18px; height:1.5px; background:var(--text); left:0; transition:transform 0.25s ease;
+  }
+  .burger span::before{ top:-6px; }
+  .burger span::after{ top:6px; }
+  .burger.open span{ background:transparent; }
+  .burger.open span::before{ transform:rotate(45deg) translate(4px,4px); }
+  .burger.open span::after{ transform:rotate(-45deg) translate(4px,-4px); }
+
+  .mobile-menu{
+    display:none; position:fixed; top:64px; left:0; right:0; bottom:0; z-index:99;
+    background:rgba(5,7,13,0.98); backdrop-filter:blur(10px);
+    padding:30px 24px; flex-direction:column; gap:6px; overflow-y:auto;
+  }
+  .mobile-menu.show{ display:flex; }
+  .mobile-menu a{
+    padding:16px 4px; font-size:1.05rem; border-bottom:1px solid var(--border); color:var(--text-soft);
+  }
+  .mobile-menu .nav-cta{ margin-top:20px; justify-content:center; padding:16px; font-size:1rem; }
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:150px 0 100px;
+    display:grid; grid-template-columns:1.05fr 0.95fr; gap:50px; align-items:center;
+  }
+  .eyebrow-badge{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--border-strong); border-radius:100px;
+    padding:7px 14px; font-size:0.8rem; color:var(--blue-bright);
+    background:var(--grad-soft); margin-bottom:22px;
+  }
+  .eyebrow-badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--blue-bright); box-shadow:0 0 8px var(--blue-bright); }
+  .hero h1{
+    font-size:clamp(2.4rem, 5.2vw, 3.9rem);
+    color:var(--text);
+  }
+  .hero h1 .brand{
+    background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p.lead{
+    margin-top:22px; font-size:1.1rem; color:var(--text-soft); max-width:52ch;
+  }
+  .hero-actions{ display:flex; gap:14px; margin-top:34px; flex-wrap:wrap; }
+  .btn{
+    display:inline-flex; align-items:center; gap:9px;
+    padding:15px 26px; border-radius:100px; font-weight:600; font-size:0.96rem;
+    transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary{
+    background:var(--grad); color:#fff; box-shadow:0 8px 26px rgba(61,107,255,0.3);
+  }
+  .btn-primary:hover{ transform:translateY(-2px); box-shadow:0 12px 30px rgba(139,92,246,0.38); }
+  .btn-ghost{
+    border:1px solid var(--border-strong); color:var(--text);
+    background:rgba(255,255,255,0.02);
+  }
+  .btn-ghost:hover{ background:rgba(255,255,255,0.06); border-color:var(--blue-bright); }
+  .btn-whatsapp{ background:var(--whatsapp); color:#04220f; box-shadow:0 8px 24px rgba(37,211,102,0.28); }
+  .btn-whatsapp:hover{ transform:translateY(-2px); box-shadow:0 12px 28px rgba(37,211,102,0.4); }
+  .hero-note{ margin-top:22px; font-size:0.88rem; color:var(--text-mute); }
+
+  /* browser mockup */
+  .browser-mock{
+    background:var(--panel); border:1px solid var(--border-strong); border-radius:16px;
+    overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,0.55), 0 0 0 1px rgba(61,107,255,0.06);
+    transform:perspective(1200px) rotateY(-6deg) rotateX(2deg);
+    animation:floatMock 7s ease-in-out infinite;
+  }
+  @keyframes floatMock{ 0%,100%{ transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(0);} 50%{ transform:perspective(1200px) rotateY(-6deg) rotateX(2deg) translateY(-12px);} }
+  .browser-bar{
+    display:flex; align-items:center; gap:8px; padding:12px 14px;
+    background:var(--panel-2); border-bottom:1px solid var(--border);
+  }
+  .browser-bar .bdot{ width:9px; height:9px; border-radius:50%; }
+  .browser-bar .bdot:nth-child(1){ background:#ff5f57; }
+  .browser-bar .bdot:nth-child(2){ background:#febc2e; }
+  .browser-bar .bdot:nth-child(3){ background:#28c840; }
+  .browser-url{
+    margin-left:10px; font-family:var(--font-mono); font-size:0.72rem; color:var(--text-mute);
+    background:var(--void); border:1px solid var(--border); border-radius:6px; padding:4px 12px; flex:1;
+  }
+  .browser-body{ padding:22px; display:flex; flex-direction:column; gap:16px; }
+  .mock-navbar{ display:flex; gap:8px; align-items:center; }
+  .mock-navbar .dotlogo{ width:22px; height:22px; border-radius:6px; background:var(--grad); }
+  .mock-navbar .line{ height:7px; border-radius:4px; background:var(--border-strong); }
+  .mock-navbar .line.w1{ width:40px; }
+  .mock-navbar .line.w2{ width:30px; }
+  .mock-navbar .line.w3{ width:34px; }
+  .mock-navbar .spacer{ flex:1; }
+  .mock-navbar .pill{ width:60px; height:20px; border-radius:20px; background:var(--grad); opacity:0.9; }
+
+  .mock-hero-block{
+    border-radius:12px; padding:22px; background:linear-gradient(160deg, rgba(61,107,255,0.12), rgba(139,92,246,0.08));
+    border:1px solid var(--border); display:flex; flex-direction:column; gap:10px;
+  }
+  .skel{ height:10px; border-radius:5px; background:linear-gradient(90deg, var(--border-strong), rgba(140,165,255,0.35), var(--border-strong)); background-size:200% 100%; animation:shimmer 2.6s ease-in-out infinite; }
+  @keyframes shimmer{ 0%{ background-position:200% 0; } 100%{ background-position:-200% 0; } }
+  .skel.w70{ width:70%; height:14px; }
+  .skel.w50{ width:50%; }
+  .skel.w35{ width:35%; height:22px; border-radius:20px; background:var(--grad); animation:none; }
+
+  .mock-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .mock-card{
+    aspect-ratio:1/0.9; border-radius:10px; border:1px solid var(--border);
+    background:var(--panel-2); position:relative; overflow:hidden;
+  }
+  .mock-card::after{
+    content:""; position:absolute; inset:0; background:linear-gradient(160deg, rgba(61,107,255,0.18), transparent 60%);
+  }
+
+  /* ---------- SECTION SHELLS ---------- */
+  .section{ padding:110px 0; }
+  .section-head{ max-width:640px; margin-bottom:56px; }
+  .section-head h2{ font-size:clamp(1.9rem, 3.4vw, 2.6rem); }
+  .section-head p{ margin-top:14px; color:var(--text-soft); font-size:1.03rem; }
+  .section-alt{ background:linear-gradient(180deg, transparent, rgba(16,24,48,0.5), transparent); }
+
+  .reveal{ opacity:0; transform:translateY(26px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  /* ---------- SOBRE DAEX ---------- */
+  .about-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:60px; align-items:start; }
+  .about-grid p{ color:var(--text-soft); margin-bottom:16px; font-size:1.02rem; }
+  .about-highlight{
+    font-family:var(--font-display); font-size:1.3rem; color:var(--text); margin-top:22px;
+    padding-left:18px; border-left:2px solid var(--blue-bright);
+  }
+  .feature-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:14px; }
+  .feature-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-sm);
+    padding:18px; transition:border-color 0.25s ease, transform 0.25s ease, background 0.25s ease;
+  }
+  .feature-card:hover{ border-color:var(--border-strong); transform:translateY(-3px); background:var(--panel-2); }
+  .feature-card .icn{ width:34px; height:34px; margin-bottom:12px; color:var(--blue-bright); }
+  .feature-card h4{ font-size:0.98rem; margin-bottom:4px; font-weight:600; }
+  .feature-card p{ font-size:0.85rem; color:var(--text-mute); }
+
+  /* ---------- TIPOS DE NEGOCIO ---------- */
+  .biz-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+  .biz-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    overflow:hidden; transition:transform 0.3s ease, border-color 0.3s ease;
+  }
+  .biz-card:hover{ transform:translateY(-6px); border-color:var(--border-strong); }
+  .biz-preview{
+    height:120px; position:relative; display:flex; align-items:flex-end; padding:14px;
+  }
+  .biz-preview.p1{ background:linear-gradient(160deg,#3a2418,#1a1206); }
+  .biz-preview.p2{ background:linear-gradient(160deg,#101d3d,#0a1024); }
+  .biz-preview.p3{ background:linear-gradient(160deg,#241428,#150a1a); }
+  .biz-preview.p4{ background:linear-gradient(160deg,#0e2b26,#0a1c18); }
+  .biz-preview .tag{
+    font-family:var(--font-mono); font-size:0.68rem; padding:5px 10px; border-radius:6px;
+    background:rgba(0,0,0,0.4); border:1px solid rgba(255,255,255,0.1); color:var(--text-soft);
+  }
+  .biz-body{ padding:18px; }
+  .biz-body h4{ font-size:1.02rem; margin-bottom:8px; }
+  .biz-body ul{ display:flex; flex-direction:column; gap:5px; }
+  .biz-body li{ font-size:0.83rem; color:var(--text-mute); display:flex; align-items:center; gap:7px; }
+  .biz-body li::before{ content:""; width:4px; height:4px; border-radius:50%; background:var(--blue-bright); flex-shrink:0; }
+
+  /* ---------- TU ESTILO ---------- */
+  .style-panel{
+    background:linear-gradient(135deg, rgba(61,107,255,0.09), rgba(139,92,246,0.07));
+    border:1px solid var(--border-strong); border-radius:24px;
+    padding:56px; display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  .style-panel h2{ font-size:clamp(1.8rem,3vw,2.3rem); margin-bottom:16px; }
+  .style-panel p{ color:var(--text-soft); }
+  .style-chips{ display:flex; flex-wrap:wrap; gap:10px; }
+  .chip{
+    display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--border-strong); border-radius:100px; padding:9px 16px;
+    font-size:0.86rem; color:var(--text-soft); background:rgba(5,7,13,0.4);
+    transition:border-color 0.2s ease, color 0.2s ease;
+  }
+  .chip:hover{ border-color:var(--blue-bright); color:var(--text); }
+  .chip svg{ width:15px; height:15px; color:var(--blue-bright); }
+
+  /* ---------- PROCESO ---------- */
+  .process-list{ display:flex; flex-direction:column; }
+  .process-item{
+    display:grid; grid-template-columns:90px 1fr; gap:24px; padding:28px 0;
+    border-top:1px solid var(--border);
+  }
+  .process-item:last-child{ border-bottom:1px solid var(--border); }
+  .process-num{ font-family:var(--font-mono); font-size:1.6rem; color:var(--blue-bright); opacity:0.7; }
+  .process-item h4{ font-size:1.15rem; margin-bottom:6px; }
+  .process-item p{ color:var(--text-soft); max-width:60ch; }
+
+  /* ---------- PORTAFOLIO ---------- */
+  .proj-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .proj-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius);
+    overflow:hidden; display:flex; flex-direction:column;
+    transition:transform 0.3s ease, border-color 0.3s ease;
+  }
+  .proj-card:hover{ transform:translateY(-6px); border-color:var(--border-strong); }
+  .proj-preview{
+    height:170px; position:relative; padding:16px; display:flex; flex-direction:column; gap:8px; justify-content:flex-end;
+    overflow:hidden;
+  }
+  .proj-preview::before{ content:""; position:absolute; inset:0; opacity:0.9; }
+  .proj-preview.rest::before{ background:radial-gradient(circle at 30% 20%, rgba(255,140,60,0.28), transparent 60%), linear-gradient(160deg,#241608,#120a04); }
+  .proj-preview.shop::before{ background:radial-gradient(circle at 70% 20%, rgba(61,107,255,0.32), transparent 60%), linear-gradient(160deg,#0a1230,#050814); }
+  .proj-preview.barb::before{ background:radial-gradient(circle at 30% 80%, rgba(230,190,80,0.22), transparent 60%), linear-gradient(160deg,#1c1408,#0d0a04); }
+  .proj-preview.local::before{ background:radial-gradient(circle at 70% 70%, rgba(52,211,153,0.24), transparent 60%), linear-gradient(160deg,#08201c,#040f0c); }
+  .proj-preview.folio::before{ background:radial-gradient(circle at 50% 30%, rgba(139,92,246,0.3), transparent 60%), linear-gradient(160deg,#160c26,#0a0614); }
+  .proj-demo-tag{
+    position:relative; z-index:1; align-self:flex-start;
+    font-family:var(--font-mono); font-size:0.65rem; letter-spacing:0.02em;
+    background:rgba(0,0,0,0.45); border:1px solid rgba(255,255,255,0.12); border-radius:6px;
+    padding:4px 9px; color:var(--text-soft);
+  }
+  .proj-preview .mini-lines{ position:relative; z-index:1; display:flex; flex-direction:column; gap:6px; }
+  .proj-preview .mini-lines span{ display:block; height:6px; border-radius:4px; background:rgba(255,255,255,0.28); }
+  .proj-preview .mini-lines span:nth-child(1){ width:55%; height:10px; background:rgba(255,255,255,0.55); }
+  .proj-preview .mini-lines span:nth-child(2){ width:70%; }
+  .proj-body{ padding:20px 20px 22px; display:flex; flex-direction:column; gap:10px; flex:1; }
+  .proj-type{ font-size:0.75rem; color:var(--blue-bright); font-weight:600; }
+  .proj-body h4{ font-size:1.08rem; }
+  .proj-body p{ font-size:0.87rem; color:var(--text-mute); flex:1; }
+  .proj-body .btn-demo{
+    margin-top:6px; align-self:flex-start; font-size:0.84rem; font-weight:600; color:var(--text);
+    display:inline-flex; align-items:center; gap:6px; padding:9px 14px;
+    border:1px solid var(--border-strong); border-radius:100px; transition:background 0.2s ease, border-color 0.2s ease;
+  }
+  .proj-body .btn-demo:hover{ background:var(--panel-2); border-color:var(--blue-bright); }
+
+  /* modal */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:200; background:rgba(3,4,9,0.82); backdrop-filter:blur(6px);
+    display:none; align-items:center; justify-content:center; padding:24px;
+  }
+  .modal-overlay.show{ display:flex; }
+  .modal-box{
+    background:var(--panel); border:1px solid var(--border-strong); border-radius:20px;
+    max-width:560px; width:100%; overflow:hidden; box-shadow:0 40px 90px rgba(0,0,0,0.6);
+  }
+  .modal-preview{ height:220px; position:relative; }
+  .modal-close{
+    position:absolute; top:14px; right:14px; z-index:2; width:34px; height:34px; border-radius:50%;
+    background:rgba(0,0,0,0.5); border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center;
+    color:#fff; font-size:1.1rem;
+  }
+  .modal-content{ padding:26px; }
+  .modal-content h3{ font-size:1.25rem; margin-bottom:8px; }
+  .modal-content p{ color:var(--text-soft); font-size:0.92rem; margin-bottom:18px; }
+  .modal-note{
+    font-size:0.78rem; color:var(--text-mute); border-top:1px solid var(--border); padding-top:14px;
+  }
+
+  /* ---------- SERVICIOS TECH ---------- */
+  .serv-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .serv-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-sm);
+    padding:22px; transition:transform 0.25s ease, border-color 0.25s ease;
+  }
+  .serv-card:hover{ transform:translateY(-4px); border-color:var(--border-strong); }
+  .serv-card .icn{ width:30px; height:30px; color:var(--purple-soft); margin-bottom:14px; }
+  .serv-card h4{ font-size:0.98rem; margin-bottom:6px; }
+  .serv-card p{ font-size:0.83rem; color:var(--text-mute); }
+  .serv-card.featured{ background:var(--grad-soft); border-color:var(--border-strong); }
+
+  /* ---------- PIURA / MAPA ---------- */
+  .piura-panel{
+    display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--border-strong);
+    border-radius:22px; overflow:hidden; background:var(--panel);
+  }
+  .piura-text{ padding:52px; }
+  .piura-text h2{ font-size:clamp(1.7rem,3vw,2.2rem); margin-bottom:16px; }
+  .piura-text p{ color:var(--text-soft); margin-bottom:26px; }
+  .piura-map{
+    position:relative; min-height:280px;
+    background:
+      linear-gradient(rgba(10,16,36,0.55), rgba(10,16,36,0.75)),
+      repeating-linear-gradient(0deg, rgba(140,165,255,0.08) 0 1px, transparent 1px 40px),
+      repeating-linear-gradient(90deg, rgba(140,165,255,0.08) 0 1px, transparent 1px 40px);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .pin{
+    width:52px; height:52px; border-radius:50% 50% 50% 0; transform:rotate(-45deg);
+    background:var(--grad); display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 8px rgba(61,107,255,0.15), 0 10px 30px rgba(61,107,255,0.4);
+    animation:pinPulse 2.4s ease-in-out infinite;
+  }
+  .pin::after{ content:""; width:14px; height:14px; border-radius:50%; background:#fff; transform:rotate(45deg); }
+  @keyframes pinPulse{ 0%,100%{ box-shadow:0 0 0 8px rgba(61,107,255,0.15), 0 10px 30px rgba(61,107,255,0.4);} 50%{ box-shadow:0 0 0 16px rgba(61,107,255,0.06), 0 10px 30px rgba(61,107,255,0.4);} }
+  .piura-map .label{
+    position:absolute; bottom:20px; left:20px; right:20px; text-align:center;
+    font-size:0.78rem; color:var(--text-mute); font-family:var(--font-mono);
+  }
+
+  /* ---------- POR QUE DAEX ---------- */
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .why-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:var(--radius-sm); padding:24px;
+  }
+  .why-card .icn{ width:28px; height:28px; color:var(--blue-bright); margin-bottom:14px; }
+  .why-card h4{ font-size:1rem; margin-bottom:6px; }
+  .why-card p{ font-size:0.86rem; color:var(--text-mute); }
+
+  /* ---------- CONTACTO ---------- */
+  .contact-hero{ text-align:center; max-width:640px; margin:0 auto 50px; }
+  .contact-hero h2{ font-size:clamp(2rem,3.6vw,2.8rem); }
+  .contact-hero p{ color:var(--text-soft); margin-top:14px; font-size:1.05rem; }
+  .contact-buttons{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; margin-top:32px; }
+  .contact-chip{
+    display:inline-flex; align-items:center; gap:10px; padding:14px 22px; border-radius:100px;
+    border:1px solid var(--border-strong); font-weight:600; font-size:0.92rem; color:var(--text);
+    background:var(--panel); transition:transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .contact-chip:hover{ transform:translateY(-2px); border-color:var(--blue-bright); background:var(--panel-2); }
+  .contact-chip svg{ width:18px; height:18px; }
+  .contact-chip.wa{ background:var(--whatsapp); color:#04220f; border-color:transparent; }
+  .contact-chip.wa:hover{ box-shadow:0 10px 26px rgba(37,211,102,0.35); }
+
+  .contact-split{ display:grid; grid-template-columns:1fr 1.15fr; gap:50px; margin-top:90px; align-items:start; }
+  .contact-split-info h3{ font-size:1.5rem; margin-bottom:14px; }
+  .contact-split-info p{ color:var(--text-soft); margin-bottom:24px; }
+  .info-line{ display:flex; align-items:flex-start; gap:12px; margin-bottom:18px; color:var(--text-soft); font-size:0.92rem; }
+  .info-line svg{ width:18px; height:18px; color:var(--blue-bright); flex-shrink:0; margin-top:2px; }
+
+  .form-card{
+    background:var(--panel); border:1px solid var(--border-strong); border-radius:var(--radius);
+    padding:34px;
+  }
+  .form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .field{ margin-bottom:18px; }
+  .field label{ display:block; font-size:0.82rem; color:var(--text-soft); margin-bottom:7px; font-weight:500; }
+  .field input, .field textarea{
+    width:100%; background:var(--void); border:1px solid var(--border); border-radius:10px;
+    padding:12px 14px; color:var(--text); font-family:inherit; font-size:0.92rem;
+    transition:border-color 0.2s ease;
+  }
+  .field input:focus, .field textarea:focus{ outline:none; border-color:var(--blue-bright); }
+  .field textarea{ resize:vertical; min-height:100px; }
+  .form-submit{
+    width:100%; justify-content:center; margin-top:6px;
+  }
+  .form-hint{ font-size:0.78rem; color:var(--text-mute); margin-top:14px; text-align:center; }
+
+  /* CTA FINAL */
+  .cta-final{
+    text-align:center; border-radius:26px; padding:70px 30px;
+    background:linear-gradient(135deg, rgba(61,107,255,0.16), rgba(139,92,246,0.16));
+    border:1px solid var(--border-strong); margin:0 24px;
+  }
+  .cta-final h2{ font-size:clamp(1.9rem,3.6vw,2.6rem); max-width:20ch; margin:0 auto 16px; }
+  .cta-final p{ color:var(--text-soft); margin-bottom:30px; }
+
+  /* ---------- FOOTER ---------- */
+  footer{ padding:70px 0 40px; border-top:1px solid var(--border); margin-top:60px; }
+  .footer-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:50px; margin-bottom:50px; }
+  .footer-brand .logo{ font-size:1.5rem; }
+  .footer-brand p{ color:var(--text-mute); margin-top:12px; max-width:34ch; font-size:0.9rem; }
+  .footer-col h5{ font-size:0.82rem; color:var(--text-mute); margin-bottom:16px; font-weight:600; }
+  .footer-col a{ display:block; color:var(--text-soft); font-size:0.9rem; margin-bottom:10px; transition:color 0.2s ease; }
+  .footer-col a:hover{ color:var(--text); }
+  .footer-social{ display:flex; gap:10px; margin-top:16px; }
+  .footer-social a{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--border);
+    display:flex; align-items:center; justify-content:center; transition:border-color 0.2s ease, transform 0.2s ease;
+  }
+  .footer-social a:hover{ border-color:var(--blue-bright); transform:translateY(-3px); }
+  .footer-social svg{ width:16px; height:16px; }
+  .footer-bottom{
+    padding-top:26px; border-top:1px solid var(--border);
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;
+    font-size:0.82rem; color:var(--text-mute);
+  }
+
+  /* WHATSAPP FLOAT */
+  .wa-float{
+    position:fixed; bottom:22px; right:22px; z-index:150;
+    width:58px; height:58px; border-radius:50%; background:var(--whatsapp);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 10px 30px rgba(37,211,102,0.45);
+    animation:waPulse 2.8s ease-in-out infinite;
+  }
+  .wa-float svg{ width:28px; height:28px; color:#04220f; }
+  @keyframes waPulse{ 0%,100%{ box-shadow:0 10px 30px rgba(37,211,102,0.45);} 50%{ box-shadow:0 10px 30px rgba(37,211,102,0.45), 0 0 0 10px rgba(37,211,102,0.14);} }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 1024px){
+    .hero{ grid-template-columns:1fr; padding-top:130px; }
+    .browser-mock{ transform:none; animation:none; order:-1; }
+    .about-grid{ grid-template-columns:1fr; gap:40px; }
+    .biz-grid{ grid-template-columns:repeat(2,1fr); }
+    .proj-grid{ grid-template-columns:repeat(2,1fr); }
+    .serv-grid{ grid-template-columns:repeat(2,1fr); }
+    .why-grid{ grid-template-columns:repeat(2,1fr); }
+    .style-panel{ grid-template-columns:1fr; padding:40px 28px; gap:30px; }
+    .piura-panel{ grid-template-columns:1fr; }
+    .contact-split{ grid-template-columns:1fr; gap:40px; }
+    .footer-grid{ grid-template-columns:1fr 1fr; gap:36px; }
+  }
+
+  @media (max-width: 720px){
+    .nav-links{ display:none; }
+    .nav-cta{ display:none; }
+    .burger{ display:flex; }
+    .section{ padding:76px 0; }
+    .hero{ padding:110px 0 60px; }
+    .hero-actions{ flex-direction:column; align-items:stretch; }
+    .hero-actions .btn{ justify-content:center; }
+    .biz-grid{ grid-template-columns:1fr; }
+    .proj-grid{ grid-template-columns:1fr; }
+    .serv-grid{ grid-template-columns:1fr 1fr; }
+    .why-grid{ grid-template-columns:1fr; }
+    .feature-grid{ grid-template-columns:1fr; }
+    .form-row{ grid-template-columns:1fr; }
+    .footer-grid{ grid-template-columns:1fr; gap:30px; }
+    .footer-bottom{ flex-direction:column; align-items:flex-start; }
+    .contact-buttons{ flex-direction:column; align-items:stretch; }
+    .contact-chip{ justify-content:center; }
+    .cta-final{ margin:0 16px; padding:50px 22px; }
+    .wrap{ padding:0 18px; }
+    .mock-grid{ grid-template-columns:repeat(3,1fr); }
+  }
+
+  @media (max-width: 460px){
+    .serv-grid{ grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="glow-field"><span class="g1"></span><span class="g2"></span><span class="g3"></span></div>
+
+<!-- ================= NAVBAR ================= -->
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#inicio" class="logo">DAEX</a>
+    <nav class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#paginas-web">Páginas Web</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#por-que-daex">¿Por qué DAEX?</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a class="nav-cta" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20estoy%20interesado%20en%20una%20p%C3%A1gina%20web%2Fservicio%20tecnol%C3%B3gico.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">
+      Cotizar por WhatsApp
+    </a>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#inicio">Inicio</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#paginas-web">Páginas Web</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#proyectos">Proyectos</a>
+  <a href="#por-que-daex">¿Por qué DAEX?</a>
+  <a href="#contacto">Contacto</a>
+  <a class="nav-cta" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20estoy%20interesado%20en%20una%20p%C3%A1gina%20web%2Fservicio%20tecnol%C3%B3gico.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero wrap" id="inicio">
+  <div class="reveal in">
+    <div class="eyebrow-badge"><span class="dot"></span>Diseño y desarrollo web en Piura</div>
+    <h1>Páginas web hechas a la <span class="brand">medida</span> de tu negocio.</h1>
+    <p class="lead">Diseño y desarrollo páginas web modernas, profesionales y adaptadas a las necesidades de cada cliente. Tú tienes la idea, DAEX la convierte en una página web.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20estoy%20interesado%20en%20una%20p%C3%A1gina%20web%2Fservicio%20tecnol%C3%B3gico.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">Quiero mi página web</a>
+      <a class="btn btn-ghost" href="#servicios">Ver mis servicios</a>
+    </div>
+    <p class="hero-note">Tu negocio merece una presencia digital profesional.</p>
+  </div>
+
+  <div class="browser-mock" aria-hidden="true">
+    <div class="browser-bar">
+      <span class="bdot"></span><span class="bdot"></span><span class="bdot"></span>
+      <div class="browser-url">tunegocio.com</div>
+    </div>
+    <div class="browser-body">
+      <div class="mock-navbar">
+        <div class="dotlogo"></div>
+        <div class="line w1"></div><div class="line w2"></div><div class="line w3"></div>
+        <div class="spacer"></div>
+        <div class="pill"></div>
+      </div>
+      <div class="mock-hero-block">
+        <div class="skel w70"></div>
+        <div class="skel w50"></div>
+        <div class="skel w35"></div>
+      </div>
+      <div class="mock-grid">
+        <div class="mock-card"></div>
+        <div class="mock-card"></div>
+        <div class="mock-card"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SOBRE DAEX ================= -->
+<section class="section" id="sobre-mi">
+  <div class="wrap about-grid">
+    <div class="reveal">
+      <h2 style="font-size:clamp(1.9rem,3.4vw,2.5rem); margin-bottom:22px;">¿Quién está detrás de DAEX?</h2>
+      <p>Soy estudiante de Ingeniería de Sistemas y me apasiona la tecnología, el desarrollo web y la creación de soluciones digitales. En DAEX creo páginas web personalizadas, buscando que cada proyecto tenga el diseño, estilo y funcionalidades que realmente necesita cada cliente.</p>
+      <p>No trabajo con una plantilla genérica: cada sitio se piensa y se construye desde cero, según el rubro, el estilo y los objetivos del negocio.</p>
+      <p class="about-highlight">Cada negocio es diferente. Por eso, cada página también debe ser diferente.</p>
+    </div>
+    <div class="feature-grid reveal">
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4"/><circle cx="12" cy="7" r="4"/></svg>
+        <h4>Diseño personalizado</h4>
+        <p>Cada sitio se diseña desde cero para tu marca.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h4>Desarrollo web</h4>
+        <p>Código limpio, rápido y bien estructurado.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        <h4>Adaptación a celulares</h4>
+        <p>Perfecta en móviles, tablets y computadoras.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="20" height="12" rx="2"/><path d="M17 9V7a5 5 0 0 0-10 0v2"/></svg>
+        <h4>Integración de redes</h4>
+        <p>Instagram, Facebook y más, conectados a tu sitio.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-4-1L3 20l1-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        <h4>Botón de WhatsApp</h4>
+        <p>Contacto directo desde cualquier página.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h4>Ubicación y mapas</h4>
+        <p>Integración con Google Maps para tu negocio.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3h18v4H3zM3 10h18v11H3z"/><path d="M8 14h8"/></svg>
+        <h4>Catálogos y productos</h4>
+        <p>Muestra tus productos o servicios con orden.</p>
+      </div>
+      <div class="feature-card">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l2-7.8L2 9h7z"/></svg>
+        <h4>Soluciones a medida</h4>
+        <p>Funcionalidades pensadas para tu operación.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CREO TU PAGINA WEB ================= -->
+<section class="section section-alt" id="paginas-web">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Creo páginas web a la medida de tu negocio</h2>
+      <p>Trabajo con restaurantes, tiendas, barberías, salones de belleza, emprendimientos, negocios de comida, tiendas de ropa, servicios profesionales, empresas, portafolios personales y profesionales independientes en toda Piura.</p>
+    </div>
+    <div class="biz-grid">
+      <div class="biz-card reveal">
+        <div class="biz-preview p1"><span class="tag">restaurante</span></div>
+        <div class="biz-body">
+          <h4>Restaurante</h4>
+          <ul>
+            <li>Menú digital</li>
+            <li>Galería de fotos</li>
+            <li>Ubicación</li>
+            <li>WhatsApp y redes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="biz-card reveal">
+        <div class="biz-preview p2"><span class="tag">tienda</span></div>
+        <div class="biz-body">
+          <h4>Tienda</h4>
+          <ul>
+            <li>Productos y precios</li>
+            <li>Categorías</li>
+            <li>Contacto directo</li>
+            <li>Botón de WhatsApp</li>
+          </ul>
+        </div>
+      </div>
+      <div class="biz-card reveal">
+        <div class="biz-preview p3"><span class="tag">negocio local</span></div>
+        <div class="biz-body">
+          <h4>Negocio local</h4>
+          <ul>
+            <li>Servicios ofrecidos</li>
+            <li>Galería</li>
+            <li>Información del negocio</li>
+            <li>Ubicación y redes</li>
+          </ul>
+        </div>
+      </div>
+      <div class="biz-card reveal">
+        <div class="biz-preview p4"><span class="tag">portafolio</span></div>
+        <div class="biz-body">
+          <h4>Portafolio</h4>
+          <ul>
+            <li>Sobre mí</li>
+            <li>Proyectos</li>
+            <li>Habilidades</li>
+            <li>Contacto</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TU PAGINA TU ESTILO ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="style-panel reveal">
+      <div>
+        <h2>Tú eliges el estilo. Yo lo convierto en realidad.</h2>
+        <p>¿Quieres una página elegante, minimalista, moderna o colorida? ¿Para vender productos o para mostrar tus servicios? Diseñamos la página pensando en tu negocio, con los elementos que realmente necesitas.</p>
+      </div>
+      <div class="style-chips">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><circle cx="8.5" cy="10" r="1"/><circle cx="15.5" cy="10" r="1"/></svg>Colores</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>Logo</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="20" height="12" rx="2"/><path d="M17 9V7a5 5 0 0 0-10 0v2"/></svg>Redes sociales</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Ubicación</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>Productos</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>Servicios</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="M21 15l-5-5L5 21"/></svg>Fotografías</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-4-1L3 20l1-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>WhatsApp</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l2-7.8L2 9h7z"/></svg>Estilo visual</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESO ================= -->
+<section class="section section-alt">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>¿Cómo trabajamos?</h2>
+      <p>De la idea a una página web profesional, paso a paso.</p>
+    </div>
+    <div class="process-list reveal">
+      <div class="process-item">
+        <div class="process-num">01</div>
+        <div><h4>Cuéntame tu idea</h4><p>Me explicas qué negocio tienes y qué necesitas en tu página web.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">02</div>
+        <div><h4>Diseñamos la propuesta</h4><p>Definimos colores, estilo, contenido y estructura junto contigo.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">03</div>
+        <div><h4>Desarrollo</h4><p>Construyo la página web y todas sus funcionalidades.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">04</div>
+        <div><h4>Revisamos</h4><p>Revisas el resultado y realizamos los ajustes necesarios.</p></div>
+      </div>
+      <div class="process-item">
+        <div class="process-num">05</div>
+        <div><h4>Publicamos</h4><p>Tu página queda lista para compartir con tus clientes.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PORTAFOLIO ================= -->
+<section class="section" id="proyectos">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Proyectos y demostraciones</h2>
+      <p>Ejemplos ilustrativos que muestran distintos estilos de páginas web que puedo crear para tu negocio. Son demostraciones, no clientes reales.</p>
+    </div>
+    <div class="proj-grid">
+
+      <article class="proj-card reveal">
+        <div class="proj-preview rest">
+          <span class="proj-demo-tag">demo</span>
+          <div class="mini-lines"><span></span><span></span></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-type">Restaurante</span>
+          <h4>Demo Restaurante</h4>
+          <p>Menú visual, galería de platos, ubicación y contacto directo por WhatsApp.</p>
+          <button class="btn-demo" data-modal="rest">Ver demostración</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-preview shop">
+          <span class="proj-demo-tag">demo</span>
+          <div class="mini-lines"><span></span><span></span></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-type">Tienda online</span>
+          <h4>Demo Tienda</h4>
+          <p>Catálogo de productos por categorías, precios y pedidos vía WhatsApp.</p>
+          <button class="btn-demo" data-modal="shop">Ver demostración</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-preview barb">
+          <span class="proj-demo-tag">demo</span>
+          <div class="mini-lines"><span></span><span></span></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-type">Barbería</span>
+          <h4>Demo Barbería</h4>
+          <p>Servicios, estilos, galería de cortes y reservas por WhatsApp.</p>
+          <button class="btn-demo" data-modal="barb">Ver demostración</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-preview local">
+          <span class="proj-demo-tag">demo</span>
+          <div class="mini-lines"><span></span><span></span></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-type">Negocio local</span>
+          <h4>Demo Negocio Local</h4>
+          <p>Presentación de servicios, galería, ubicación y datos de contacto.</p>
+          <button class="btn-demo" data-modal="local">Ver demostración</button>
+        </div>
+      </article>
+
+      <article class="proj-card reveal">
+        <div class="proj-preview folio">
+          <span class="proj-demo-tag">demo</span>
+          <div class="mini-lines"><span></span><span></span></div>
+        </div>
+        <div class="proj-body">
+          <span class="proj-type">Portafolio personal</span>
+          <h4>Demo Portafolio</h4>
+          <p>Presentación profesional, proyectos, habilidades y formulario de contacto.</p>
+          <button class="btn-demo" data-modal="folio">Ver demostración</button>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-preview" id="modalPreview">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="modal-content">
+      <span class="proj-type" id="modalType">Tipo</span>
+      <h3 id="modalTitle">Título</h3>
+      <p id="modalDesc">Descripción</p>
+      <a class="btn btn-primary" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20me%20interes%C3%B3%20uno%20de%20tus%20proyectos%20de%20demostraci%C3%B3n%20y%20quiero%20una%20p%C3%A1gina%20similar%20para%20mi%20negocio." target="_blank" rel="noopener">Quiero algo así para mi negocio</a>
+      <p class="modal-note">Esta es una demostración ilustrativa creada por DAEX para mostrar estilo y estructura. No corresponde a un cliente real.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================= SERVICIOS TECNOLOGICOS ================= -->
+<section class="section section-alt" id="servicios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>Más soluciones tecnológicas de DAEX</h2>
+      <p>Además de páginas web, ofrezco otros servicios tecnológicos en Piura, con atención personalizada y a domicilio.</p>
+    </div>
+    <div class="serv-grid">
+      <div class="serv-card featured reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h4>Desarrollo de páginas web</h4>
+        <p>Creación de páginas web modernas y personalizadas para negocios, emprendimientos y profesionales.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="7" width="16" height="12" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><circle cx="12" cy="13" r="2.5"/></svg>
+        <h4>Instalación de cámaras</h4>
+        <p>Instalación y configuración básica de sistemas de cámaras de seguridad.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="4" width="20" height="6" rx="1"/><rect x="2" y="14" width="20" height="6" rx="1"/><line x1="6" y1="7" x2="6" y2="7"/><line x1="6" y1="17" x2="6" y2="17"/></svg>
+        <h4>Puntos de internet</h4>
+        <p>Instalación y configuración de puntos de red e internet para mejorar la conectividad.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M5 12.5a9 9 0 0 1 14 0"/><path d="M8.5 15.5a5 5 0 0 1 7 0"/><circle cx="12" cy="18.5" r="1"/></svg>
+        <h4>Repetidores de internet</h4>
+        <p>Instalación y configuración de repetidores para ampliar la cobertura de Wi-Fi.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="8" y1="20" x2="16" y2="20"/><line x1="12" y1="16" x2="12" y2="20"/></svg>
+        <h4>Mantenimiento de PC</h4>
+        <p>Revisión, mantenimiento y configuración básica de computadoras.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="6" width="20" height="12" rx="6"/><circle cx="8" cy="12" r="2"/><circle cx="16" cy="9.5" r="1"/><circle cx="18" cy="12" r="1"/></svg>
+        <h4>Mantenimiento PS3, PS4, PS5</h4>
+        <p>Servicio de mantenimiento básico y limpieza para consolas PlayStation.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+        <h4>Servicio a domicilio</h4>
+        <p>Atención a domicilio para determinados servicios tecnológicos en Piura.</p>
+      </div>
+      <div class="serv-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+        <h4>Instalación de Office y programas</h4>
+        <p>Instalación y configuración de Office 365 y otros programas, siempre con software y licencias de forma legal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICIO EN PIURA ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="piura-panel reveal">
+      <div class="piura-text">
+        <h2>Servicio en Piura</h2>
+        <p>Atención y servicio a domicilio en Piura. Coordinamos contigo el lugar y horario más conveniente para desarrollar tu proyecto o brindarte soporte técnico.</p>
+        <a class="btn btn-ghost" href="https://maps.app.goo.gl/JmmaMrceKrB8Exhx6?g_st=ac" target="_blank" rel="noopener">Ver ubicación</a>
+        <p style="margin-top:18px; font-size:0.8rem; color:var(--text-mute);">La ubicación mostrada es solo una referencia. Contáctame para coordinar el servicio.</p>
+      </div>
+      <div class="piura-map">
+        <div class="pin"></div>
+        <div class="label">Piura, Perú — ubicación referencial</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= POR QUE DAEX ================= -->
+<section class="section section-alt" id="por-que-daex">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <h2>¿Por qué elegir DAEX?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 7h7l-5.5 4.2L18.5 21 12 16.8 5.5 21l2-7.8L2 9h7z"/></svg>
+        <h4>Diseño personalizado</h4>
+        <p>No todos los negocios necesitan la misma página.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+        <h4>Adaptado a celulares</h4>
+        <p>Tu página funciona correctamente en teléfonos, tablets y computadoras.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21v-4a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v4"/><circle cx="12" cy="7" r="4"/></svg>
+        <h4>Atención personalizada</h4>
+        <p>Escucho lo que necesita el cliente y adapto el proyecto.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="9" width="20" height="12" rx="2"/><path d="M17 9V7a5 5 0 0 0-10 0v2"/></svg>
+        <h4>Integración de redes sociales</h4>
+        <p>Conecto las redes sociales de tu negocio con tu sitio web.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-4-1L3 20l1-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+        <h4>Contacto directo</h4>
+        <p>Podrás comunicarte fácilmente conmigo mediante WhatsApp.</p>
+      </div>
+      <div class="why-card reveal">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <h4>Servicio local</h4>
+        <p>Atención en Piura y posibilidad de servicio a domicilio.</p>
+      </div>
+      <div class="why-card reveal" style="grid-column: span 1;">
+        <svg class="icn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        <h4>Soluciones tecnológicas</h4>
+        <p>Además de páginas web, ofrezco diferentes servicios tecnológicos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACTO ================= -->
+<section class="section" id="contacto">
+  <div class="wrap">
+    <div class="contact-hero reveal">
+      <h2>¿Tienes un proyecto en mente?</h2>
+      <p>Cuéntame qué necesitas y conversemos sobre tu proyecto.</p>
+      <div class="contact-buttons">
+        <a class="contact-chip wa" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20estoy%20interesado%20en%20una%20p%C3%A1gina%20web%2Fservicio%20tecnol%C3%B3gico.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 13.98c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.61-.6-2.83-1.22-4.68-4.07-4.82-4.26-.14-.19-1.15-1.53-1.15-2.92 0-1.39.73-2.07.99-2.35.26-.28.57-.35.76-.35h.55c.18 0 .41-.07.64.49.24.57.81 1.97.88 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.3.36-.42.48-.14.14-.29.29-.13.57.17.28.75 1.24 1.61 2 1.11.99 2.04 1.3 2.32 1.44.28.14.44.12.6-.07.17-.19.71-.83.9-1.11.19-.28.38-.24.64-.14.26.09 1.66.78 1.94.93.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+          Hablar por WhatsApp
+        </a>
+        <a class="contact-chip" href="https://www.instagram.com/daniel_rodrx?stkn=MTBmZWFqcjM4aGtqMQ==" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/></svg>
+          Ver Instagram
+        </a>
+        <a class="contact-chip" href="https://www.facebook.com/share/19fvVYrnvd/" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          Ver Facebook
+        </a>
+        <a class="contact-chip" href="https://maps.app.goo.gl/JmmaMrceKrB8Exhx6?g_st=ac" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Ver ubicación
+        </a>
+      </div>
+    </div>
+
+    <div class="contact-split">
+      <div class="contact-split-info reveal">
+        <h3>Cuéntame sobre tu proyecto</h3>
+        <p>Completa el formulario y prepararé un mensaje con tus datos para enviarlo directamente por WhatsApp. También puedes escribirme directamente si lo prefieres.</p>
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Piura, Perú — servicio a domicilio disponible
+        </div>
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-4-1L3 20l1-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+          Respuesta rápida por WhatsApp
+        </div>
+        <div class="info-line">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          Cotización sin compromiso
+        </div>
+      </div>
+
+      <form class="form-card reveal" id="contactForm">
+        <div class="form-row">
+          <div class="field">
+            <label for="f-nombre">Nombre</label>
+            <input type="text" id="f-nombre" name="nombre" placeholder="Tu nombre" required>
+          </div>
+          <div class="field">
+            <label for="f-negocio">Nombre del negocio</label>
+            <input type="text" id="f-negocio" name="negocio" placeholder="Opcional">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-servicio">Servicio que necesitas</label>
+          <input type="text" id="f-servicio" name="servicio" placeholder="Ej. Página web para restaurante" required>
+        </div>
+        <div class="field">
+          <label for="f-presupuesto">Presupuesto aproximado (opcional)</label>
+          <input type="text" id="f-presupuesto" name="presupuesto" placeholder="Ej. S/ 300 - S/ 500">
+        </div>
+        <div class="field">
+          <label for="f-mensaje">Mensaje</label>
+          <textarea id="f-mensaje" name="mensaje" placeholder="Cuéntame un poco más sobre tu proyecto..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Enviar consulta</button>
+        <p class="form-hint">Al enviar, se abrirá WhatsApp con tu mensaje ya preparado.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="section" style="padding-top:0;">
+  <div class="cta-final reveal">
+    <h2>Tu negocio merece estar en internet.</h2>
+    <p>Diseño web pensado para ti. Tecnología a tu alcance.</p>
+    <a class="btn btn-primary" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20estoy%20interesado%20en%20una%20p%C3%A1gina%20web%2Fservicio%20tecnol%C3%B3gico.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener">Cotizar mi página web</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">DAEX</div>
+        <p>Diseño web y soluciones tecnológicas en Piura. Tu negocio, tu estilo, tu página.</p>
+        <div class="footer-social">
+          <a href="https://wa.me/51933149809" target="_blank" rel="noopener" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-4-1L3 20l1-4.5A8.5 8.5 0 1 1 21 11.5z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/daniel_rodrx?stkn=MTBmZWFqcjM4aGtqMQ==" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/19fvVYrnvd/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Navegación</h5>
+        <a href="#inicio">Inicio</a>
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#paginas-web">Páginas web</a>
+        <a href="#servicios">Servicios</a>
+      </div>
+      <div class="footer-col">
+        <h5>Más</h5>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#por-que-daex">¿Por qué DAEX?</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 DAEX. Todos los derechos reservados.</span>
+      <span>Diseño web y soluciones tecnológicas en Piura.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a class="wa-float" href="https://wa.me/51933149809?text=Hola%20DAEX%2C%20estoy%20interesado%20en%20una%20p%C3%A1gina%20web%2Fservicio%20tecnol%C3%B3gico.%20Me%20gustar%C3%ADa%20recibir%20informaci%C3%B3n." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.29-1.39a9.9 9.9 0 0 0 4.75 1.21h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 13.98c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.11.11-1.79-.11-.41-.13-.94-.3-1.61-.6-2.83-1.22-4.68-4.07-4.82-4.26-.14-.19-1.15-1.53-1.15-2.92 0-1.39.73-2.07.99-2.35.26-.28.57-.35.76-.35h.55c.18 0 .41-.07.64.49.24.57.81 1.97.88 2.11.07.14.12.31.02.5-.09.19-.14.31-.28.47-.14.16-.3.36-.42.48-.14.14-.29.29-.13.57.17.28.75 1.24 1.61 2 1.11.99 2.04 1.3 2.32 1.44.28.14.44.12.6-.07.17-.19.71-.83.9-1.11.19-.28.38-.24.64-.14.26.09 1.66.78 1.94.93.28.14.47.21.53.33.07.12.07.68-.17 1.36z"/></svg>
+</a>
+
+<script>
+  // Mobile menu
+  const burgerBtn = document.getElementById('burgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  burgerBtn.addEventListener('click', () => {
+    const open = mobileMenu.classList.toggle('show');
+    burgerBtn.classList.toggle('open', open);
+    burgerBtn.setAttribute('aria-expanded', open);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('show');
+    burgerBtn.classList.remove('open');
+    burgerBtn.setAttribute('aria-expanded', false);
+  }));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => io.observe(el));
+
+  // Project demo modal
+  const projectData = {
+    rest: { type:'Restaurante', title:'Demo Restaurante', desc:'Sitio con menú visual por categorías, galería de platos, ubicación integrada con mapa y botón directo de WhatsApp para reservas y pedidos.', cls:'rest' },
+    shop: { type:'Tienda online', title:'Demo Tienda', desc:'Catálogo de productos organizado por categorías, precios visibles, ficha de producto y contacto rápido por WhatsApp para cerrar la venta.', cls:'shop' },
+    barb: { type:'Barbería', title:'Demo Barbería', desc:'Presentación de servicios y precios, galería de estilos de corte, horario de atención y reservas por WhatsApp.', cls:'barb' },
+    local: { type:'Negocio local', title:'Demo Negocio Local', desc:'Página institucional con servicios, galería de trabajos realizados, datos de contacto y ubicación del negocio.', cls:'local' },
+    folio: { type:'Portafolio personal', title:'Demo Portafolio', desc:'Presentación profesional con sección sobre mí, proyectos destacados, habilidades técnicas y formulario de contacto.', cls:'folio' },
+  };
+  const overlay = document.getElementById('modalOverlay');
+  const modalPreview = document.getElementById('modalPreview');
+  const modalType = document.getElementById('modalType');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalDesc = document.getElementById('modalDesc');
+
+  document.querySelectorAll('.btn-demo').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const data = projectData[btn.dataset.modal];
+      modalPreview.className = 'modal-preview proj-preview ' + data.cls;
+      modalPreview.innerHTML = '<button class="modal-close" id="modalClose2" aria-label="Cerrar">✕</button>';
+      modalType.textContent = data.type;
+      modalTitle.textContent = data.title;
+      modalDesc.textContent = data.desc;
+      overlay.classList.add('show');
+      document.getElementById('modalClose2').addEventListener('click', closeModal);
+    });
+  });
+  function closeModal(){ overlay.classList.remove('show'); }
+  document.getElementById('modalClose').addEventListener('click', closeModal);
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeModal(); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeModal(); });
+
+  // Contact form -> WhatsApp
+  const form = document.getElementById('contactForm');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nombre = document.getElementById('f-nombre').value.trim();
+    const negocio = document.getElementById('f-negocio').value.trim();
+    const servicio = document.getElementById('f-servicio').value.trim();
+    const presupuesto = document.getElementById('f-presupuesto').value.trim();
+    const mensaje = document.getElementById('f-mensaje').value.trim();
+
+    let text = `Hola DAEX, mi nombre es ${nombre}.`;
+    if (negocio) text += ` Tengo un negocio llamado ${negocio}.`;
+    text += ` Estoy interesado en ${servicio}.`;
+    if (presupuesto) text += ` Mi presupuesto aproximado es ${presupuesto}.`;
+    if (mensaje) text += ` ${mensaje}`;
+    text += ' Me gustaría recibir información.';
+
+    const url = `https://wa.me/51933149809?text=${encodeURIComponent(text)}`;
+    window.open(url, '_blank', 'noopener');
+  });
+</script>
+
+</body>
+</html>
